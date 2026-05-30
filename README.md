@@ -1,121 +1,223 @@
-# AI Fitness Chatbot (RAG + LLM)
+# AI Fitness Assistant
 
-An AI-powered fitness chatbot built using FastAPI, embedding-based RAG, FAISS vector search, and LLaMA 3.1 via Groq API.
+### Multi-RAG Recommendation System using FastAPI, FAISS and LLMs
+
+AI Fitness Assistant is a GenAI-powered fitness recommendation system that combines Retrieval-Augmented Generation (RAG), metadata-aware retrieval, intent routing, and Large Language Models (LLMs) to provide grounded exercise and diet recommendations.
+
+The system uses separate RAG pipelines for exercise and diet recommendations, ensuring responses remain accurate, relevant, and aligned with the user's condition, goals, and difficulty level.
+
+---
 
 ## Features
 
-- AI Fitness Chatbot
-- Embedding-based RAG
-- Semantic Search using FAISS
-- LLM Integration (Groq + LLaMA 3.1)
-- JSON-based responses
-- Frontend + Backend integration
-- CSV-based fitness knowledge base
+### AI & RAG Features
+
+* Query Classification & Intent Routing
+* Multi-RAG Architecture
+* Exercise Recommendation RAG Pipeline
+* Diet Recommendation RAG Pipeline
+* Metadata-Aware Retrieval
+* Grounded Recommendation System
+* Conversational Memory Support
+* Safety Guidance Generation
+
+### Retrieval Features
+
+* FAISS Vector Search
+* Sentence Transformer Embeddings
+* Semantic Similarity Search
+* CSV-Based Knowledge Base
+
+### Backend Features
+
+* FastAPI REST APIs
+* Groq LLaMA 3.1 Integration
+* Structured JSON Responses
+* Swagger API Documentation
+
+### Frontend Features
+
+* Interactive Chat Interface
+* Dynamic Recommendation Rendering
+* Grounded Exercise Display
+* Grounded Diet Display
+
+---
+
+## Architecture
+
+User Query
+↓
+Query Classifier
+↓
+Metadata Extraction
+↓
+Intent Routing
+↓
+Exercise RAG / Diet RAG
+↓
+Metadata Filtering
+↓
+FAISS Retrieval
+↓
+Prompt Construction
+↓
+Groq LLaMA 3.1
+↓
+Structured JSON Response
+↓
+Frontend Rendering
+
+### Intent Routing
+
+The system supports four query types:
+
+* General Conversation
+* Exercise Recommendation
+* Diet Recommendation
+* Exercise + Diet Recommendation
+
+Each query is routed to the appropriate retrieval pipeline before response generation.
 
 ---
 
 ## Tech Stack
 
-- Python
-- FastAPI
-- Groq API
-- LLaMA 3.1
-- Sentence Transformers
-- FAISS
-- HTML/CSS/JavaScript
+### Backend
+
+* Python
+* FastAPI
+* Pydantic
+* Uvicorn
+
+### AI / ML
+
+* Groq API
+* LLaMA 3.1
+* Sentence Transformers
+* FAISS
+
+### Data Processing
+
+* Pandas
+* NumPy
+
+### Frontend
+
+* HTML
+* CSS
+* JavaScript
 
 ---
 
 ## Project Structure
 
-```bash
 ai-fitness-chatbot/
-│
+
 ├── app/
 │   ├── main.py
 │   ├── rag.py
+│   ├── diet_rag.py
+│   ├── query_classifier.py
 │   ├── prompts.py
-│   ├── models.py
+│   └── models.py
 │
 ├── data/
-│   └── fitness_data.csv
+│   ├── cleaned_fitness_data.csv
+│   └── cleaned_diet_data.csv
 │
 ├── frontend/
 │   └── index.html
 │
 ├── requirements.txt
-├── .env
+├── .env.example
 ├── README.md
-```
 
 ---
 
-## How It Works
+## Setup Instructions
 
-1. User enters fitness query
-2. Query converted into embeddings
-3. FAISS retrieves semantically relevant fitness data
-4. Retrieved context passed into prompt
-5. LLM generates structured fitness response
-6. Response displayed in frontend
+### Clone Repository
 
----
+git clone <repository-url>
 
-## Sample Query
+cd ai-fitness-chatbot
 
-```json
-{
-  "query": "I have knee pain and obesity"
-}
-```
+### Install Dependencies
 
----
+pip install -r requirements.txt
 
-## Sample Output
+### Configure Environment Variables
 
-```json
-{
-  "condition": "knee pain and obesity",
-  "recommended_exercises": [
-    "Walking",
-    "Cycling"
-  ],
-  "precautions": [
-    "Avoid running",
-    "Start with low impact exercises"
-  ]
-}
-```
+Create a `.env` file:
 
----
+GROQ_API_KEY=your_groq_api_key
 
-## Run Backend
+### Run Backend
 
-```bash
 uvicorn app.main:app --reload
-```
+
+### Access Swagger UI
+
+http://127.0.0.1:8000/docs
 
 ---
 
-## API Docs
+## Example Queries
 
-```bash
-http://127.0.0.1:8000/docs
-```
+### Exercise Query
+
+I have wrist pain and want flexibility exercises for intermediate level.
+
+### Diet Query
+
+I have diabetes and want muscle gain diet.
+
+### Combined Query
+
+I have lower back pain and want fat loss. Suggest exercise and diet.
+
+### General Query
+
+Hi, I want to know more about fitness.
+
+---
+
+## Application Screenshots
+
+### General Chat
+![General Query](assets/general-query.png)
+
+### Exercise Recommendation
+![Exercise Query](assets/exercise-query.png)
+
+### Diet Recommendation
+![Diet Query](assets/diet-query.png)
+
+---
+
+## API Response Format
+
+{
+"assistant_response": "...",
+"safety_guidance": "..."
+}
 
 ---
 
 ## Future Improvements
 
-- PDF knowledge base support
-- Better UI
-- Multi-turn conversation memory
-- Real-time fitness tracking
+* User Authentication
+* Personalized User Profiles
+* Workout Tracking
+* Cloud Deployment
+* Analytics Dashboard
+* Recommendation Feedback Loop
 
+---
 
 ## Author
 
-Vijay Kiran Chowdary Gandhamaneni
-AI Intern  | FastAPI | LLMs | RAG  
+**Vijay Kiran Chowdary Gandhamaneni**
 
-GitHub: https://github.com/vijayGandhamaneni
+AI Intern | GenAI | FastAPI | RAG Systems | Conversational AI

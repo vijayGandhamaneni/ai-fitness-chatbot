@@ -13,7 +13,7 @@ embedding_model = SentenceTransformer(
 # Load Dataset
 
 df = pd.read_csv(
-    "data/cleaned_fitness_data.csv"
+    "data/cleaned_diet_data.csv"
 )
 
 # Create Semantic Documents
@@ -21,12 +21,13 @@ df = pd.read_csv(
 df["document"] = df.apply(
 
     lambda row: f"""
-Condition: {row['condition']}
-Exercise: {row['exercise']}
-Precaution: {row['precaution']}
 Goal: {row['goal']}
-Difficulty: {row['difficulty']}
-Steps: {row['steps']}
+Condition: {row['condition']}
+Diet Type: {row['diet_type']}
+Foods: {row['foods']}
+Avoid: {row['avoid']}
+Hydration: {row['hydration']}
+Meal Tip: {row['meal_tip']}
 """,
 
     axis=1
@@ -59,17 +60,19 @@ def format_result(row):
 
     return {
 
-        "condition": row["condition"],
-
-        "exercise": row["exercise"],
-
-        "precaution": row["precaution"],
-
         "goal": row["goal"],
 
-        "difficulty": row["difficulty"],
+        "condition": row["condition"],
 
-        "steps": row["steps"]
+        "diet_type": row["diet_type"],
+
+        "foods": row["foods"],
+
+        "avoid": row["avoid"],
+
+        "hydration": row["hydration"],
+
+        "meal_tip": row["meal_tip"]
     }
 
 # Semantic Ranking Helper
@@ -141,7 +144,7 @@ def semantic_rank(
 
 # Full Structured Retrieval
 
-def retrieve_context(
+def retrieve_diet_context(
 
     query,
 
@@ -157,12 +160,13 @@ def retrieve_context(
 
     searchable_columns = [
 
-        "condition",
-        "exercise",
-        "precaution",
         "goal",
-        "difficulty",
-        "steps"
+        "condition",
+        "diet_type",
+        "foods",
+        "avoid",
+        "hydration",
+        "meal_tip"
     ]
 
     applied_filters = 0

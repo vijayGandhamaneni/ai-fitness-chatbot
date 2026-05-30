@@ -1,0 +1,101 @@
+condition,exercise,precaution,goal,difficulty,steps
+shoulder pain,wall push ups,avoid heavy lifting,mobility improvement,beginner,start with wall support and perform slow controlled repetitions
+shoulder pain,arm circles,avoid jerky movements,flexibility,beginner,rotate arms slowly in small circles for thirty seconds
+shoulder pain,band pull aparts,maintain proper posture,posture correction,intermediate,hold resistance band and pull gently across chest
+shoulder pain,wall angels,stop if pain increases,rehabilitation,intermediate,stand against wall and slide arms upward slowly
+shoulder pain,scapular squeezes,avoid overtraining,strength building,advanced,squeeze shoulder blades together and hold for five seconds
+knee pain,seated leg raises,avoid deep squats,joint mobility,beginner,sit on chair and slowly raise one leg at a time
+knee pain,mini squats,avoid twisting knees,strength building,intermediate,bend knees slightly while keeping back straight
+knee pain,water walking,avoid impact exercises,pain relief,beginner,walk slowly in waist deep water for ten minutes
+knee pain,cycling,use proper footwear,cardio fitness,intermediate,pedal with low resistance and maintain steady speed
+knee pain,chair squats,avoid sudden movements,mobility improvement,advanced,sit and stand slowly using chair support
+lower back pain,pelvic tilts,maintain neutral spine,pain relief,beginner,lie on floor and tilt pelvis gently upward
+lower back pain,bird dog,avoid heavy deadlifts,core stability,intermediate,extend opposite arm and leg while balancing
+lower back pain,cat cow stretch,avoid poor posture,flexibility,beginner,alternate between arching and rounding the back slowly
+lower back pain,bridge holds,avoid prolonged sitting,strength building,intermediate,lift hips upward and hold for ten seconds
+lower back pain,dead bug exercise,avoid twisting,rehabilitation,advanced,lower opposite arm and leg while keeping core tight
+neck stiffness,chin tucks,avoid sudden neck movements,posture correction,beginner,pull chin backward slowly and hold briefly
+neck stiffness,neck stretches,move slowly,flexibility,beginner,tilt neck gently side to side without forcing
+neck stiffness,shoulder rolls,maintain upright posture,mobility improvement,intermediate,roll shoulders backward in controlled circles
+neck stiffness,thoracic mobility drills,avoid slouching,pain relief,intermediate,rotate upper spine slowly while seated upright
+neck stiffness,neck tilts,avoid sleeping awkwardly,rehabilitation,advanced,tilt head toward shoulder and hold stretch
+ankle pain,ankle circles,avoid jumping,joint mobility,beginner,rotate ankle clockwise and counterclockwise slowly
+ankle pain,heel toe raises,use support if needed,balance improvement,intermediate,raise heels and toes alternately while standing
+ankle pain,toe raises,avoid uneven surfaces,strength building,beginner,lift toes upward while keeping heels grounded
+ankle pain,single leg balance,hold nearby support,stability training,intermediate,balance on one foot for twenty seconds
+ankle pain,calf raises,avoid high impact training,rehabilitation,advanced,lift heels slowly and lower with control
+hip pain,glute bridges,avoid explosive movement,strength building,beginner,push hips upward while squeezing glutes
+hip pain,clamshell exercise,avoid overextension,mobility improvement,intermediate,open knees sideways while lying on one side
+hip pain,standing marches,avoid long sitting hours,pain relief,beginner,lift knees slowly while standing upright
+hip pain,fire hydrants,avoid sudden twisting,hip stability,intermediate,raise bent leg sideways in controlled motion
+hip pain,side leg raises,move in controlled motion,rehabilitation,advanced,lift upper leg slowly and lower gently
+wrist pain,wrist flexor stretches,avoid repetitive strain,pain relief,beginner,extend arm and gently pull fingers backward
+wrist pain,finger stretches,avoid lifting heavy objects,mobility improvement,beginner,spread fingers wide and hold for five seconds
+wrist pain,wrist circles,keep wrist neutral,flexibility,intermediate,rotate wrists slowly in both directions
+wrist pain,prayer stretch,avoid pressure on wrist,rehabilitation,intermediate,press palms together and lower hands gradually
+wrist pain,grip strengthening,avoid overtraining,strength building,advanced,squeeze soft ball repeatedly with light pressure
+elbow pain,forearm stretches,avoid locking elbows,pain relief,beginner,stretch forearm muscles gently after warm up
+elbow pain,light curls,avoid jerky arm motion,strength recovery,intermediate,curl light weights slowly with controlled movement
+elbow pain,reverse wrist curls,avoid repetitive gripping,mobility improvement,intermediate,lift wrist upward using light dumbbell
+elbow pain,band pulls,avoid excessive load,rehabilitation,advanced,pull resistance band slowly toward chest
+elbow pain,tricep stretches,move slowly,flexibility,beginner,bend arm overhead and stretch tricep gently
+arthritis,water aerobics,exercise gently,joint mobility,beginner,perform low impact movements in warm water
+arthritis,chair yoga,avoid high resistance,pain relief,beginner,perform seated yoga poses with slow breathing
+arthritis,tai chi,move within pain free range,balance improvement,intermediate,practice slow flowing body movements mindfully
+arthritis,slow swimming,avoid cold environments,cardio fitness,intermediate,swim at relaxed pace using gentle strokes
+arthritis,range of motion exercises,stop if swelling occurs,flexibility,advanced,move joints through comfortable motion daily
+obesity,walking,start slowly,fat loss,beginner,walk for fifteen minutes at moderate pace
+obesity,stationary cycling,stay hydrated,calorie burning,intermediate,cycle steadily with moderate resistance level
+obesity,chair cardio,monitor breathing,weight loss,beginner,perform seated arm and leg movements continuously
+obesity,elliptical workout,increase duration gradually,cardio fitness,intermediate,maintain smooth motion on elliptical machine
+obesity,water walking,maintain steady pace,endurance building,advanced,walk continuously in pool for twenty minutes
+asthma,breathing exercises,keep inhaler nearby,lung endurance,beginner,inhale deeply through nose and exhale slowly
+asthma,slow jogging,avoid polluted air,cardio fitness,intermediate,jog lightly while controlling breathing rhythm
+asthma,walking intervals,stop if wheezing occurs,endurance building,intermediate,alternate slow and moderate walking periods
+asthma,indoor cycling,exercise in ventilated area,calorie burning,advanced,cycle indoors while maintaining comfortable breathing
+asthma,light aerobics,warm up properly,weight loss,beginner,perform gentle aerobic steps at low intensity
+diabetes,light cycling,monitor blood sugar,weight management,beginner,cycle slowly for twenty minutes after meals
+diabetes,walking after meals,carry water bottle,glucose control,beginner,walk at comfortable pace after eating
+diabetes,pilates,avoid skipping meals,flexibility,intermediate,perform core focused pilates exercises carefully
+diabetes,bodyweight squats,check glucose levels,strength building,intermediate,lower body slowly and stand back upright
+diabetes,light rowing,exercise consistently,fat loss,advanced,row steadily while monitoring energy levels
+high blood pressure,slow treadmill walking,avoid breath holding,heart health,beginner,walk slowly with steady controlled breathing
+high blood pressure,gentle yoga,avoid maximal exertion,stress reduction,beginner,hold simple yoga poses with deep breathing
+high blood pressure,stretching routine,avoid overheating,mobility improvement,intermediate,stretch major muscle groups slowly and safely
+high blood pressure,light hiking,stay hydrated,cardio fitness,intermediate,walk on mild slopes at easy pace
+high blood pressure,chair aerobics,avoid intense intervals,weight management,advanced,perform seated aerobic exercises continuously
+sciatica,piriformis stretch,avoid prolonged sitting,pain relief,beginner,cross one leg over other and stretch gently
+sciatica,bird dog,avoid bending with weight,core stability,intermediate,balance while extending opposite limbs slowly
+sciatica,pelvic tilts,avoid sudden twisting,mobility improvement,beginner,tighten abdominal muscles and tilt pelvis upward
+sciatica,cobra stretch,avoid lifting heavy loads,rehabilitation,intermediate,press chest upward while hips stay grounded
+sciatica,hamstring stretch,move slowly,flexibility,advanced,stretch hamstrings gently without bouncing motion
+plantar fasciitis,toe stretches,wear supportive shoes,pain relief,beginner,pull toes backward gently while seated
+plantar fasciitis,foot rolling,avoid barefoot walking,mobility improvement,intermediate,roll foot over frozen bottle slowly
+plantar fasciitis,calf stretches,avoid prolonged standing,flexibility,beginner,lean toward wall and stretch calf muscles
+plantar fasciitis,heel stretches,avoid high impact activity,rehabilitation,intermediate,stretch heel cord carefully before walking
+plantar fasciitis,arch strengthening,increase intensity gradually,foot stability,advanced,perform towel scrunch exercises with toes
+osteoporosis,chair squats,avoid sudden twisting,bone strength,beginner,sit and stand slowly using strong posture
+osteoporosis,step ups,avoid high impact jumps,leg strength,intermediate,step onto low platform and return carefully
+osteoporosis,light resistance training,maintain posture,strength building,intermediate,lift light weights using slow movements
+osteoporosis,wall sits,avoid spinal flexion,mobility improvement,advanced,hold seated wall position for thirty seconds
+osteoporosis,modified push ups,avoid jerky movements,upper body strength,advanced,perform push ups using wall or knees
+carpal tunnel syndrome,finger stretches,avoid repetitive typing,mobility improvement,beginner,stretch fingers outward and relax repeatedly
+carpal tunnel syndrome,wrist rotations,avoid excessive gripping,pain relief,beginner,rotate wrists gently in circular motion
+carpal tunnel syndrome,nerve glides,keep wrist neutral,rehabilitation,intermediate,move wrist and fingers through nerve glide pattern
+carpal tunnel syndrome,thumb stretches,take frequent breaks,flexibility,intermediate,pull thumb gently backward and release slowly
+carpal tunnel syndrome,tendon glides,avoid wrist pressure,strength recovery,advanced,move fingers through full tendon glide sequence
+rotator cuff injury,pendulum swings,avoid overhead lifting,rehabilitation,beginner,lean forward and swing arm gently
+rotator cuff injury,wall crawls,move slowly,mobility improvement,intermediate,walk fingers upward along wall carefully
+rotator cuff injury,band rows,avoid forceful pulling,strength building,intermediate,pull resistance band toward torso slowly
+rotator cuff injury,external rotations,avoid heavy shoulder press,pain relief,advanced,rotate arm outward with resistance band
+rotator cuff injury,scapular exercises,maintain shoulder alignment,posture correction,advanced,squeeze shoulder blades during controlled movement
+hamstring strain,gentle stretching,avoid sprinting,muscle recovery,beginner,stretch back of thigh gently without bouncing
+hamstring strain,foam rolling,avoid overstretching,mobility improvement,intermediate,roll hamstring muscles slowly using foam roller
+hamstring strain,bridge exercise,warm up properly,strength building,intermediate,lift hips upward while engaging hamstrings
+hamstring strain,light cycling,avoid explosive movement,rehabilitation,advanced,pedal slowly to improve blood circulation
+hamstring strain,mobility drills,exercise gradually,flexibility,advanced,perform controlled leg swings at low intensity
+shin splints,calf stretches,avoid hard surfaces,pain relief,beginner,stretch calves gently before and after activity
+shin splints,elliptical training,increase intensity slowly,cardio fitness,intermediate,exercise on elliptical machine with low resistance
+shin splints,pool jogging,avoid overtraining,rehabilitation,intermediate,jog slowly in water with minimal impact
+shin splints,heel walking,wear proper footwear,strength building,advanced,walk on heels for short controlled intervals
+shin splints,toe taps,stretch regularly,mobility improvement,advanced,tap toes repeatedly while seated upright

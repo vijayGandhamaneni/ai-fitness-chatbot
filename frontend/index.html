@@ -4,55 +4,198 @@
 <head>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>AI Fitness Chatbot</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>AI Fitness Assistant</title>
 
     <style>
 
         body {
+
+            margin: 0;
+            padding: 0;
+
             font-family: Arial, sans-serif;
-            background: #f4f4f4;
-            padding: 40px;
+
+            background-color: #f3f4f6;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            height: 100vh;
         }
 
-        .container {
-            max-width: 800px;
-            margin: auto;
+        .chat-container {
+
+            width: 90%;
+            max-width: 1000px;
+
+            height: 92vh;
+
             background: white;
-            padding: 25px;
-            border-radius: 10px;
+
+            border-radius: 15px;
+
+            display: flex;
+            flex-direction: column;
+
+            overflow: hidden;
+
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
         }
 
-        h1 {
+        .chat-header {
+
+            background-color: #0f172a;
+
+            color: white;
+
+            padding: 22px;
+
             text-align: center;
+
+            font-size: 28px;
+
+            font-weight: bold;
         }
 
-        textarea {
-            width: 100%;
-            height: 120px;
-            padding: 10px;
-            margin-top: 15px;
+        .chat-messages {
+
+            flex: 1;
+
+            overflow-y: auto;
+
+            padding: 20px;
+
+            display: flex;
+            flex-direction: column;
+
+            gap: 18px;
+
+            background-color: #f9fafb;
+        }
+
+        .message {
+
+            max-width: 75%;
+
+            padding: 16px;
+
+            border-radius: 14px;
+
+            line-height: 1.8;
+
             font-size: 16px;
+
+            word-wrap: break-word;
+        }
+
+        .user-message {
+
+            align-self: flex-end;
+
+            background-color: #2563eb;
+
+            color: white;
+        }
+
+        .bot-message {
+
+            align-self: flex-start;
+
+            background-color: #e5e7eb;
+
+            color: black;
+        }
+
+        .input-container {
+
+            display: flex;
+
+            padding: 15px;
+
+            border-top: 1px solid #d1d5db;
+
+            background: white;
+        }
+
+        #messageInput {
+
+            flex: 1;
+
+            padding: 15px;
+
+            font-size: 16px;
+
+            border: 1px solid #cbd5e1;
+
+            border-radius: 12px;
+
+            outline: none;
         }
 
         button {
-            margin-top: 20px;
-            padding: 12px 20px;
-            background: black;
-            color: white;
+
+            margin-left: 12px;
+
+            padding: 14px 22px;
+
             border: none;
+
+            border-radius: 12px;
+
+            background-color: #0f172a;
+
+            color: white;
+
             cursor: pointer;
+
             font-size: 16px;
+
+            font-weight: bold;
+
+            transition: 0.2s;
         }
 
-        .response-box {
-            margin-top: 25px;
-            background: #f1f1f1;
-            padding: 15px;
-            border-radius: 10px;
-            white-space: pre-wrap;
-            overflow-x: auto;
+        button:hover {
+
+            background-color: #1e293b;
+        }
+
+        button:disabled {
+
+            opacity: 0.6;
+
+            cursor: not-allowed;
+        }
+
+        .rag-card {
+
+            margin-top: 12px;
+
+            padding: 14px;
+
+            background-color: white;
+
+            border-radius: 12px;
+
+            border: 1px solid #d1d5db;
+
+            line-height: 1.9;
+        }
+
+        .section-title {
+
+            margin-top: 20px;
+
+            margin-bottom: 10px;
+
+            font-size: 18px;
+
+            font-weight: bold;
         }
 
     </style>
@@ -61,21 +204,28 @@
 
 <body>
 
-    <div class="container">
+    <div class="chat-container">
 
-        <h1>AI Fitness Chatbot</h1>
+        <div class="chat-header">
+            AI Fitness Assistant
+        </div>
 
-        <textarea
-            id="query"
-            placeholder="Ask your fitness question here..."></textarea>
+        <div class="chat-messages"
+             id="chatMessages">
+        </div>
 
-        <button onclick="sendQuery()">
-            Ask AI
-        </button>
+        <div class="input-container">
 
-        <div class="response-box" id="response">
+            <input type="text"
+                   id="messageInput"
+                   placeholder="Ask your fitness question...">
 
-            AI response will appear here...
+            <button id="sendButton"
+                    onclick="sendMessage()">
+
+                Send
+
+            </button>
 
         </div>
 
@@ -83,47 +233,360 @@
 
     <script>
 
-        async function sendQuery() {
+        const API_URL =
+            "http://127.0.0.1:8000/chat";
 
-            const query =
-                document.getElementById("query").value;
+        let chatHistory = [];
 
-            const responseBox =
-                document.getElementById("response");
+        // ---------------------------------
+        // Enter Key Support
+        // ---------------------------------
 
-            responseBox.innerHTML = "Loading...";
+        document
+            .getElementById("messageInput")
+            .addEventListener("keypress", function(event) {
+
+                if (event.key === "Enter") {
+
+                    sendMessage();
+                }
+            });
+
+        // ---------------------------------
+        // Add Message
+        // ---------------------------------
+
+        function addMessage(content, className) {
+
+            const chatMessages =
+                document.getElementById("chatMessages");
+
+            const messageDiv =
+                document.createElement("div");
+
+            messageDiv.className =
+                `message ${className}`;
+
+            messageDiv.innerHTML = content;
+
+            chatMessages.appendChild(messageDiv);
+
+            chatMessages.scrollTop =
+                chatMessages.scrollHeight;
+        }
+
+        // ---------------------------------
+        // Render Exercise Card
+        // ---------------------------------
+
+        function renderExerciseCard(item) {
+
+            return `
+
+                <div class="rag-card">
+
+                    <strong>Condition:</strong>
+                    ${item.condition}
+
+                    <br><br>
+
+                    <strong>Exercise:</strong>
+                    ${item.exercise}
+
+                    <br><br>
+
+                    <strong>Precaution:</strong>
+                    ${item.precaution}
+
+                    <br><br>
+
+                    <strong>Goal:</strong>
+                    ${item.goal}
+
+                    <br><br>
+
+                    <strong>Difficulty:</strong>
+                    ${item.difficulty}
+
+                    <br><br>
+
+                    <strong>Steps:</strong>
+                    ${item.steps}
+
+                </div>
+            `;
+        }
+
+        // ---------------------------------
+        // Render Diet Card
+        // ---------------------------------
+
+        function renderDietCard(item) {
+
+            return `
+
+                <div class="rag-card">
+
+                    <strong>Goal:</strong>
+                    ${item.goal}
+
+                    <br><br>
+
+                    <strong>Condition:</strong>
+                    ${item.condition}
+
+                    <br><br>
+
+                    <strong>Diet Type:</strong>
+                    ${item.diet_type}
+
+                    <br><br>
+
+                    <strong>Recommended Foods:</strong>
+                    ${item.foods}
+
+                    <br><br>
+
+                    <strong>Avoid Foods:</strong>
+                    ${item.avoid}
+
+                    <br><br>
+
+                    <strong>Hydration:</strong>
+                    ${item.hydration}
+
+                    <br><br>
+
+                    <strong>Meal Tip:</strong>
+                    ${item.meal_tip}
+
+                </div>
+            `;
+        }
+
+        // ---------------------------------
+        // Send Message
+        // ---------------------------------
+
+        async function sendMessage() {
+
+            const input =
+                document.getElementById("messageInput");
+
+            const sendButton =
+                document.getElementById("sendButton");
+
+            const message =
+                input.value.trim();
+
+            if (!message) return;
+
+            sendButton.disabled = true;
+
+            // ---------------------------------
+            // User Message
+            // ---------------------------------
+
+            addMessage(
+                message,
+                "user-message"
+            );
+
+            chatHistory.push({
+
+                role: "user",
+
+                content: message
+            });
+
+            input.value = "";
+
+            // ---------------------------------
+            // Loading
+            // ---------------------------------
+
+            addMessage(
+                "Thinking...",
+                "bot-message"
+            );
 
             try {
 
-                const response = await fetch(
-                    "http://127.0.0.1:8000/chat",
-                    {
-                        method: "POST",
+                const response = await fetch(API_URL, {
 
-                        headers: {
-                            "Content-Type": "application/json"
-                        },
+                    method: "POST",
 
-                        body: JSON.stringify({
-                            query: query
-                        })
-                    }
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+
+                    body: JSON.stringify({
+
+                        message: message,
+
+                        chat_history: chatHistory
+                    })
+                });
+
+                const data =
+                    await response.json();
+
+                // ---------------------------------
+                // Remove Loading
+                // ---------------------------------
+
+                const chatMessages =
+                    document.getElementById("chatMessages");
+
+                if (chatMessages.lastChild) {
+
+                    chatMessages.removeChild(
+                        chatMessages.lastChild
+                    );
+                }
+
+                // ---------------------------------
+                // Backend Response
+                // ---------------------------------
+
+                let aiData = data.response || {
+
+                    assistant_response:
+                        "No response generated.",
+
+                    safety_guidance: ""
+                };
+
+                // ---------------------------------
+                // Main Assistant Response
+                // ---------------------------------
+
+                let botHTML = `
+
+                    <p>
+                        ${aiData.assistant_response}
+                    </p>
+                `;
+
+                // ---------------------------------
+                // Exercise Recommendations
+                // ---------------------------------
+
+                if (
+
+                    data.retrieved_context &&
+
+                    data.retrieved_context.length > 0
+                ) {
+
+                    botHTML += `
+
+                        <div class="section-title">
+                            Recommended Exercises
+                        </div>
+                    `;
+
+                    data.retrieved_context.forEach(item => {
+
+                        botHTML += renderExerciseCard(
+                            item
+                        );
+                    });
+                }
+
+                // ---------------------------------
+                // Diet Recommendations
+                // ---------------------------------
+
+                if (
+
+                    data.diet_context &&
+
+                    data.diet_context.length > 0
+                ) {
+
+                    botHTML += `
+
+                        <div class="section-title">
+                            Recommended Diet
+                        </div>
+                    `;
+
+                    data.diet_context.forEach(item => {
+
+                        botHTML += renderDietCard(
+                            item
+                        );
+                    });
+                }
+
+                // ---------------------------------
+                // Safety Guidance
+                // ---------------------------------
+
+                if (aiData.safety_guidance) {
+
+                    botHTML += `
+
+                        <div class="section-title">
+                            Safety Guidance
+                        </div>
+
+                        <p>
+                            ${aiData.safety_guidance}
+                        </p>
+                    `;
+                }
+
+                // ---------------------------------
+                // Final Render
+                // ---------------------------------
+
+                addMessage(
+                    botHTML,
+                    "bot-message"
                 );
 
-                const data = await response.json();
+                // ---------------------------------
+                // Store Assistant History
+                // ---------------------------------
 
-                responseBox.innerHTML =
-                    JSON.stringify(data, null, 2);
+                chatHistory.push({
+
+                    role: "assistant",
+
+                    content:
+                        aiData.assistant_response
+                });
 
             }
 
             catch (error) {
 
-                responseBox.innerHTML =
-                    "Error: " + error;
+                const chatMessages =
+                    document.getElementById("chatMessages");
 
+                if (chatMessages.lastChild) {
+
+                    chatMessages.removeChild(
+                        chatMessages.lastChild
+                    );
+                }
+
+                addMessage(
+
+                    "Unable to connect to AI backend.",
+
+                    "bot-message"
+                );
+
+                console.error(error);
             }
 
+            finally {
+
+                sendButton.disabled = false;
+            }
         }
 
     </script>
